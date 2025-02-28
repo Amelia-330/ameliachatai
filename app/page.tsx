@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { ChatMessage, ApiMessage } from './types/chat'
 import { ApiClient } from './utils/api'
-import { debounce } from 'lodash'
 
 // 初始化API客户端
 const api = new ApiClient(process.env.NEXT_PUBLIC_SILICONFLOW_API_KEY || '')
@@ -12,14 +11,13 @@ export default function Home() {
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [inputValue, setInputValue] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [loadingText, setLoadingText] = useState('正在思考...')
 
   // 合并两个初始化 useEffect
   useEffect(() => {
     const savedMessages = localStorage.getItem('chat-messages');
     if (savedMessages) {
       try {
-        const parsedMessages = JSON.parse(savedMessages).map((msg: any) => ({
+        const parsedMessages = JSON.parse(savedMessages).map((msg: ChatMessage) => ({
           ...msg,
           timestamp: new Date(msg.timestamp)
         }));
@@ -46,7 +44,7 @@ export default function Home() {
     }
   }, []);
 
-  const handleSubmit = useCallback(async (e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const trimmedInput = inputValue.trim()
     if (!trimmedInput || trimmedInput.length > 2000) {

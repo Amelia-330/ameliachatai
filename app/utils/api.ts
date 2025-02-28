@@ -1,13 +1,6 @@
 import { ApiResponse, ApiMessage } from '../types/chat'
-import { useState, useEffect } from 'react'
 
 const API_BASE_URL = 'https://api.siliconflow.cn/v1/chat/completions'
-
-// 添加新的类型定义
-interface ChatMessage {
-  role: 'user' | 'assistant' | 'system'
-  content: string
-}
 
 export class ApiClient {
   private token: string
