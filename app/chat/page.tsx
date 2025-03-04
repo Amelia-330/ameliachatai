@@ -67,7 +67,7 @@ export default function ChatPage() {
           return msg
         }))
       }
-    } catch (_error) {
+    } catch {
       // 处理错误情况
       setMessages(prev => prev.map(msg => {
         if (msg.id === aiMessageId) {
