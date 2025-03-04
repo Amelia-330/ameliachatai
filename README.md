@@ -1,4 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI 智能助手项目
+
+## 项目简介
+这是一个基于 Next.js 和 SiliconFlow API 开发的 AI 智能助手应用。该应用提供了一个优雅的深色主题聊天界面，支持实时对话和流式响应。
+
+## 功能特点
+1. 深色主题界面
+   - 优雅的深色配色方案
+   - 流畅的动画效果
+   - 响应式设计
+
+2. 聊天功能
+   - 实时对话
+   - 流式响应
+   - 消息历史记录
+   - 复制消息功能
+   - 清空对话功能
+
+3. 用户体验
+   - 自动滚动到最新消息
+   - 加载状态动画
+   - 错误处理和提示
+   - 本地存储对话历史
+
+## 技术栈
+- Next.js 15.2.0
+- TypeScript
+- Tailwind CSS
+- SiliconFlow API
+
+## 项目结构
 
 ## Getting Started
 
